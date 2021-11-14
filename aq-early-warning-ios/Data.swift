@@ -24,6 +24,8 @@ struct AuthResponse: Codable {
 }
 
 class Api {
+    @AppStorage("token") var token: String = ""
+    
     func authenticate(payload: AuthPaylaod, completion: @escaping (AuthResponse) -> ()) {
         guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/authenticate/apple") else { return }
         
@@ -41,9 +43,7 @@ class Api {
             if (error != nil) {
                 print("we got an error :(", error)
             }
-            
             let res = try! JSONDecoder().decode(AuthResponse.self, from: data!)
-            print("got here auth", res)
             
             DispatchQueue.main.async {
                 completion(res)

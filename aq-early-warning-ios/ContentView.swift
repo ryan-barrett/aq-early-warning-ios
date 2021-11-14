@@ -23,15 +23,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if token.isEmpty {
-                    SignInButtonView()
+                if (self.token == "") {
+                    SignInView()
                 }
                 else {
-                    Text("we made it " + self.token)
+                    Text(self.email)
+                    Text(self.firstName)
+                    Text(self.lastName)
+                    Text(self.userId)
+                    SignInView()
                 }
             }
             .navigationTitle("Sign In")
-            
         }
     }
 }

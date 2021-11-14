@@ -8,7 +8,7 @@
 import AuthenticationServices
 import SwiftUI
 
-struct SignInButtonView: View {
+struct SignInView: View {
     @Environment(\.colorScheme) var colorScheme
     
     @AppStorage("backendUserId") var backendUserId: Int = -1
@@ -17,6 +17,7 @@ struct SignInButtonView: View {
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userId") var userId: String = ""
     @AppStorage("token") var token: String = ""
+//    @AppStorage("token") var token: String = ""
     
     var body: some View {
         SignInWithAppleButton(.continue) { request in
