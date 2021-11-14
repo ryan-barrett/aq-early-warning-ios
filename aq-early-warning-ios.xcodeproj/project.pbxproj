@@ -15,6 +15,7 @@
 		941F8E4E273DD7BA00C178DB /* aq_early_warning_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E4D273DD7BA00C178DB /* aq_early_warning_iosUITests.swift */; };
 		941F8E50273DD7BA00C178DB /* aq_early_warning_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E4F273DD7BA00C178DB /* aq_early_warning_iosUITestsLaunchTests.swift */; };
 		941F8E5D273DD7DC00C178DB /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E5C273DD7DC00C178DB /* SignInView.swift */; };
+		941F8E63273DDD4600C178DB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E62273DDD4600C178DB /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		941F8E4F273DD7BA00C178DB /* aq_early_warning_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aq_early_warning_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		941F8E5C273DD7DC00C178DB /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		941F8E5E273DD84D00C178DB /* aq-early-warning-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "aq-early-warning-ios.entitlements"; sourceTree = "<group>"; };
+		941F8E62273DDD4600C178DB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				941F8E36273DD7B900C178DB /* Assets.xcassets */,
 				941F8E38273DD7B900C178DB /* Preview Content */,
 				941F8E5C273DD7DC00C178DB /* SignInView.swift */,
+				941F8E62273DDD4600C178DB /* Data.swift */,
 			);
 			path = "aq-early-warning-ios";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				941F8E5D273DD7DC00C178DB /* SignInView.swift in Sources */,
 				941F8E35273DD7B800C178DB /* ContentView.swift in Sources */,
 				941F8E33273DD7B800C178DB /* aq_early_warning_iosApp.swift in Sources */,
+				941F8E63273DDD4600C178DB /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@ struct ContentView: View {
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userId") var userId: String = ""
+    @AppStorage("token") var token: String = ""
     
     private var isSignedIn: Bool {
         !userId.isEmpty
@@ -22,14 +23,15 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if userId.isEmpty {
+                if token.isEmpty {
                     SignInButtonView()
                 }
                 else {
-                    //                    signed inw
+                    Text("we made it " + self.token)
                 }
             }
             .navigationTitle("Sign In")
+            
         }
     }
 }
