@@ -11,13 +11,18 @@ import SwiftUI
 struct SignInView: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @AppStorage("backendUserId") var backendUserId: Int = -1
+    @AppStorage("backendUserId") var backendUserId: Int?
     @AppStorage("email") var email: String = ""
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userId") var userId: String = ""
     @AppStorage("token") var token: String = ""
-//    @AppStorage("token") var token: String = ""
+    
+    @AppStorage("maxAqi") var maxAqi: Int?
+    @AppStorage("latitude") var latitude: Double?
+    @AppStorage("longitude") var longitude: Double?
+    
+    @AppStorage("currentAqi") var currentAqi: Int?
     
     var body: some View {
         SignInWithAppleButton(.continue) { request in
@@ -41,16 +46,23 @@ struct SignInView: View {
                     guard let dataToken: Data = credential.identityToken as? Data else { return }
                     guard let token = String(data: dataToken, encoding: String.Encoding.utf8) as? String else { return }
                     self.userId = userId
+                    self.token = token
                     
-                    let payload = AuthPaylaod(userId: self.userId, token: token, email: email, firstName: firstName, lastName: lastName)
+                    let payload = AuthPaylaod(userId: self.userId, email: email, firstName: firstName, lastName: lastName)
                     
                     Api().authenticate(payload: payload) { response in
                         if (response.success) {
-                            self.token = token
                             self.backendUserId = response.backendUserId
                             self.email = response.email
                             self.firstName = response.firstName
                             self.lastName = response.lastName
+                            
+                            Api().getUserSettings { userSettings in
+                                print(userSettings)
+                                self.maxAqi = userSettings.maxAqi
+                                self.latitude = userSettings.latitude
+                                self.longitude = userSettings.longitude
+                            }
                         }
                     }
                     break;
