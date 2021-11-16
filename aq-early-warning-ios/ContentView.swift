@@ -26,15 +26,6 @@ struct ContentView: View {
 //        !userId.isEmpty
 //    }
     
-    private var maxAcceptableAQI: String {
-        if (self.maxAqi > -1) {
-            return String (self.maxAqi)
-        }
-        else {
-            return "Not Set"
-        }
-    }
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -42,23 +33,9 @@ struct ContentView: View {
                     SignInView()
                 }
                 else {
-                    Text(self.email)
-//                    Text(self.firstName)
-//                    Text(self.lastName)
-//                    Text(self.userId)
-                    Text("Max Acceptable AQI: " + maxAcceptableAQI)
-//                    Text(String(self.latitude))
-//                    Text(String(self.longitude))
-                    Text("Current AQI: " + String(self.currentAqi ?? 0))
-                        .onAppear {
-                            Api().getPollution(latitude: self.latitude ?? -1.0, longitude: self.longitude ?? -1.0) { response in
-                                self.currentAqi = response.aqi
-
-                            }
-                        }
+                    MainView()
                 }
             }
-            .navigationTitle("Sign In")
         }
     }
 }
