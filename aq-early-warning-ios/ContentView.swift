@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+class CurrentView: ObservableObject {
+    @Published var view = "main"
+}
+
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     
@@ -22,21 +26,24 @@ struct ContentView: View {
     
     @AppStorage("currentAqi") var currentAqi: Int?
     
-//    private var isSignedIn: Bool {
-//        !userId.isEmpty
-//    }
+    @StateObject var currentView = CurrentView()
     
     var body: some View {
         NavigationView {
             VStack {
-                if (self.token == "") {
+                switch currentView.view {
+                case "signIn":
                     SignInView()
-                }
-                else {
+                case "main":
                     MainView()
+                case "settings":
+                    SettingsView()
+                default:
+                    SignInView()
                 }
             }
         }
+        .environmentObject(currentView)
     }
 }
 

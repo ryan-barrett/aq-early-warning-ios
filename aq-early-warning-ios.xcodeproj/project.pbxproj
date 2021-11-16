@@ -18,6 +18,9 @@
 		941F8E63273DDD4600C178DB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E62273DDD4600C178DB /* Data.swift */; };
 		94C3320B274341C9002101ED /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3320A274341C9002101ED /* mainView.swift */; };
 		94C3320D2743431E002101ED /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3320C2743431E002101ED /* Api.swift */; };
+		94C3320F27434866002101ED /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3320E27434866002101ED /* SettingsView.swift */; };
+		94C3321227437752002101ED /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3321127437752002101ED /* LocationManager.swift */; };
+		94C3321627437A86002101ED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C3321527437A86002101ED /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		941F8E62273DDD4600C178DB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		94C3320A274341C9002101ED /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
 		94C3320C2743431E002101ED /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		94C3320E27434866002101ED /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		94C3321127437752002101ED /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		94C3321327437A86002101ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		94C3321527437A86002101ED /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C3321627437A86002101ED /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +95,7 @@
 				941F8E42273DD7BA00C178DB /* aq-early-warning-iosTests */,
 				941F8E4C273DD7BA00C178DB /* aq-early-warning-iosUITests */,
 				941F8E30273DD7B800C178DB /* Products */,
+				94C3321427437A86002101ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,7 +112,9 @@
 		941F8E31273DD7B800C178DB /* aq-early-warning-ios */ = {
 			isa = PBXGroup;
 			children = (
-				94C3320927434198002101ED /* views */,
+				94C3321327437A86002101ED /* Info.plist */,
+				94C3321027437740002101ED /* Managers */,
+				94C3320927434198002101ED /* Views */,
 				941F8E5E273DD84D00C178DB /* aq-early-warning-ios.entitlements */,
 				941F8E32273DD7B800C178DB /* aq_early_warning_iosApp.swift */,
 				941F8E34273DD7B800C178DB /* ContentView.swift */,
@@ -140,13 +151,30 @@
 			path = "aq-early-warning-iosUITests";
 			sourceTree = "<group>";
 		};
-		94C3320927434198002101ED /* views */ = {
+		94C3320927434198002101ED /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				941F8E5C273DD7DC00C178DB /* SignInView.swift */,
 				94C3320A274341C9002101ED /* mainView.swift */,
+				94C3320E27434866002101ED /* SettingsView.swift */,
 			);
-			path = views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94C3321027437740002101ED /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				94C3321127437752002101ED /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		94C3321427437A86002101ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94C3321527437A86002101ED /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +307,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C3320F27434866002101ED /* SettingsView.swift in Sources */,
 				94C3320D2743431E002101ED /* Api.swift in Sources */,
 				941F8E5D273DD7DC00C178DB /* SignInView.swift in Sources */,
 				941F8E35273DD7B800C178DB /* ContentView.swift in Sources */,
+				94C3321227437752002101ED /* LocationManager.swift in Sources */,
 				941F8E33273DD7B800C178DB /* aq_early_warning_iosApp.swift in Sources */,
 				94C3320B274341C9002101ED /* mainView.swift in Sources */,
 				941F8E63273DDD4600C178DB /* Data.swift in Sources */,
@@ -449,6 +479,7 @@
 				DEVELOPMENT_TEAM = F6AWFYVDL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "aq-early-warning-ios/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -479,6 +510,7 @@
 				DEVELOPMENT_TEAM = F6AWFYVDL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "aq-early-warning-ios/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
