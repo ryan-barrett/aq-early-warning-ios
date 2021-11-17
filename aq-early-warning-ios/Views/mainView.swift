@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @AppStorage("backendUserId") var backendUserId: Int?
     @AppStorage("email") var email: String = ""
     @AppStorage("firstName") var firstName: String = ""
@@ -20,6 +22,9 @@ struct MainView: View {
     @AppStorage("longitude") var longitude: Double?
     
     @AppStorage("currentAqi") var currentAqi: Int?
+    
+    @State var aqiDetails: PollutionResponse = PollutionResponse(latitude: nil, longitude: nil, aqi: nil, aqiComponents: nil, date: nil)
+    
     @EnvironmentObject var currentView: CurrentView
     
     private var maxAcceptableAQI: String {
@@ -35,7 +40,7 @@ struct MainView: View {
     var body: some View {
         Text("AQI")
             .font(.largeTitle)
-            .offset(y: -270)
+            .offset(y: -210)
             .navigationBarTitle(Text("Current Conditions"), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -58,32 +63,31 @@ struct MainView: View {
             .font(.largeTitle)
             .padding()
             .border(Color.white, width: 4)
-            .offset(y: -260)
-            .onAppear {
-                if (self.token == "") {
-                    self.currentView.view = "signIn"
-                } else {
-                    Api().getPollution(latitude: self.latitude ?? -1.0, longitude: self.longitude ?? -1.0) { response in
-                        self.currentAqi = response.aqi
-                    }
-                }
-            }
-        
-        Text("Max Acceptable AQI: " + maxAcceptableAQI)
-            .offset(y: -210)
+            .offset(y: -190)
             .onAppear {
                 if (self.token == "") {
                     self.currentView.view = "signIn"
                 } else {
                     Api().getUserSettings { userSettings in
-                        print(userSettings)
+                        print("got here user settings", userSettings)
                         self.maxAqi = userSettings.maxAqi
                         self.latitude = userSettings.latitude
                         self.longitude = userSettings.longitude
-                        print("GOT HERE", self.backendUserId ?? 0)
+                        print("GOT HERE", self.backendUserId!)
                         print("GOT HERE2", self.maxAqi ?? 0)
+                        
+                        Api().getPollution(latitude: self.latitude ?? -1.0, longitude: self.longitude ?? -1.0) { response in
+                            self.currentAqi = response.aqi
+                            self.aqiDetails = response
+                        }
                     }
                 }
             }
+        
+        Text("Max Acceptable AQI: " + maxAcceptableAQI)
+            .offset(y: -150)
+        
+        AqiBreakdownView(aqiDetails: self.aqiDetails)
+            .offset(y: -75)
     }
 }

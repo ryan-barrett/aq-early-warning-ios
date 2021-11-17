@@ -30,12 +30,20 @@ struct UserSettings: Codable {
     let longitude: Double?
 }
 
-struct PollutionResponse: Codable {
-    let latitude: Double
-    let longitude: Double
-    let aqi: Int
-    let aqiComponents: PollutionResponseDetail
-    let date: Int
+class PollutionResponse: ObservableObject, Decodable, Encodable {
+    let latitude: Double?
+    let longitude: Double?
+    let aqi: Int?
+    let aqiComponents: PollutionResponseDetail?
+    let date: Int?
+    
+    init(latitude: Double?, longitude: Double?, aqi: Int?, aqiComponents: PollutionResponseDetail?, date: Int?) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.aqi = aqi
+        self.aqiComponents = aqiComponents
+        self.date = date
+    }
 }
 
 struct PollutionResponseDetail: Codable {

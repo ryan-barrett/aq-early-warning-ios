@@ -39,6 +39,7 @@ class Api {
     }
     
     func getUserSettings(completion: @escaping (UserSettings) -> ()) {
+        print("fetching settings for ", self.backendUserId)
         guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/user/\(self.backendUserId)/settings") else { return }
         print("got here 1", self.token)
         
@@ -95,6 +96,34 @@ class Api {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "PUT"
         request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if (error != nil) {
+                print("we got an error :(", error)
+            }
+            let res = try! JSONDecoder().decode(UserSettings.self, from: data!)
+            
+            DispatchQueue.main.async {
+                completion(res)
+            }
+        }
+        .resume()
+    }
+    
+    func updateUserLocation(userId: Int, latitude: Double, longitude: Double, completion: @escaping (UserSettings) -> ()) {
+        guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/user/\(userId)/settings/location") else { return }
+        let payload = UserSettings(id: 0, userId: userId, maxAqi: nil, latitude: latitude, longitude: longitude)
+        
+        guard let encoded = try? JSONEncoder().encode(payload) else {
+            print("Failed to encode auth payload")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "PUT"
+        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        request.httpBody = encoded
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if (error != nil) {
