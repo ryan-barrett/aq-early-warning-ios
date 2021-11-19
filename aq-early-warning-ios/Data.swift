@@ -46,6 +46,29 @@ class PollutionResponse: ObservableObject, Decodable, Encodable {
     }
 }
 
+struct PollutionForecastCoords: Codable {
+    let lon: Double?
+    let lat: Double?
+}
+
+struct PollutionForecastResponse: Codable {
+    let coord: PollutionForecastCoords?
+    let latitude: Double?
+    let longitude: Double?
+    let list: [PollutionForecastEntry]
+}
+
+struct PollutionForecastMain: Codable {
+    let aqi: Int?
+}
+
+struct PollutionForecastEntry: Codable {
+    let main: PollutionForecastMain?
+    let components: PollutionResponseDetail?
+    let dt: Int?
+    let aqi: Int?
+}
+
 struct PollutionResponseDetail: Codable {
     let co: Double
     let no: Double

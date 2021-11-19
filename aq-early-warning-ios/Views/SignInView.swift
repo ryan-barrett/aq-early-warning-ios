@@ -79,6 +79,7 @@ struct SignInView: View {
         .signInWithAppleButtonStyle(
             colorScheme == .dark ? .white : .black
         )
+        .navigationBarTitle(Text("AQ Early Warning"), displayMode: .inline)
         .frame(height: 50)
         .padding()
         .cornerRadius(8)

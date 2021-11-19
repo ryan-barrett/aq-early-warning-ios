@@ -2,11 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use this information to ensure that you get up to date reports on the air quality in your area</string>
-	<key>CFBundleIdentifier</key>
-	<string>t.aq-early-warning-ios</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

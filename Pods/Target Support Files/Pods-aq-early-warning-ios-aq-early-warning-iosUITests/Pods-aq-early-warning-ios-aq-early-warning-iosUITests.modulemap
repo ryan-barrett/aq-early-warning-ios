@@ -1,0 +1,6 @@
+framework module Pods_aq_early_warning_ios_aq_early_warning_iosUITests {
+  umbrella header "Pods-aq-early-warning-ios-aq-early-warning-iosUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -88,6 +88,32 @@ class Api {
         .resume()
     }
     
+    func getPollutionForecast(latitude: Double, longitude: Double, completion: @escaping (PollutionForecastResponse) -> ()) {
+        print("incoming lat", latitude)
+        print("incoming long", longitude)
+        
+        guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/weather/pollution/forecast?latitude=\(String(latitude))&longitude=\(String(longitude))") else { return }
+        print("url", url)
+        
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if (error != nil) {
+                print("we got an error :(", error)
+            }
+            let res = try! JSONDecoder().decode(PollutionForecastResponse.self, from: data!)
+            print("pollution response", res)
+            
+            DispatchQueue.main.async {
+                completion(res)
+            }
+        }
+        .resume()
+    }
+    
     func updateUserMaxAqi(userId: Int, maxAqi: Int, completion: @escaping (UserSettings) -> ()) {
         print("setting maxAqi", maxAqi)
         guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/user/\(userId)/settings/maxAqi/\(maxAqi)") else { return }

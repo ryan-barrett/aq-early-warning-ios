@@ -13,7 +13,7 @@ struct AqiBreakdownView: View {
     var body: some View {
         Text("Air Breakdown")
             .font(.title2)
-            .offset(y: -15)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
 
         Text("co: \(self.aqiDetails.aqiComponents?.co ?? 0)")
         Text("no: \(self.aqiDetails.aqiComponents?.no ?? 0)")
