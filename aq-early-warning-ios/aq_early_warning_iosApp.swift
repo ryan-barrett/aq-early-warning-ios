@@ -23,6 +23,7 @@ struct aq_early_warning_iosApp: App {
 
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UIApplication.shared.applicationIconBadgeNumber = 0
         FirebaseApp.configure()
         FirebaseConfiguration.shared.setLoggerLevel(.min)
         
@@ -45,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
       didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
       Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 }
 
