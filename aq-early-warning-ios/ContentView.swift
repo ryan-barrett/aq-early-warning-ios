@@ -11,6 +11,10 @@ class CurrentView: ObservableObject {
     @Published var view = "main"
 }
 
+class ForecastDetailTitle: ObservableObject {
+    @Published var day = ""
+}
+
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     
@@ -27,6 +31,9 @@ struct ContentView: View {
     @AppStorage("currentAqi") var currentAqi: Int?
     
     @StateObject var currentView = CurrentView()
+    @StateObject var aqiDetails: ResponseContainer = ResponseContainer(response: PollutionResponse(latitude: nil, longitude: nil, aqi: nil, aqiComponents: nil, date: nil))
+    @StateObject var forecastContainer: ForecastContainer = ForecastContainer(forecast: [])
+    @StateObject var forecastDetailTitle = ForecastDetailTitle()
     
     var body: some View {
         NavigationView {
@@ -38,12 +45,19 @@ struct ContentView: View {
                     MainView()
                 case "settings":
                     SettingsView()
+                case "aqiBreakdown":
+                    AqiBreakdownView()
+                case "forecastDetail":
+                    ForecastDetailView()
                 default:
                     SignInView()
                 }
             }
         }
         .environmentObject(currentView)
+        .environmentObject(aqiDetails)
+        .environmentObject(forecastContainer)
+        .environmentObject(forecastDetailTitle)
     }
 }
 

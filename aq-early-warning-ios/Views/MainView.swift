@@ -23,9 +23,8 @@ struct MainView: View {
     
     @AppStorage("currentAqi") var currentAqi: Int?
     
-    @State var aqiDetails: PollutionResponse = PollutionResponse(latitude: nil, longitude: nil, aqi: nil, aqiComponents: nil, date: nil)
-    
     @EnvironmentObject var currentView: CurrentView
+    @EnvironmentObject var aqiDetails: ResponseContainer
     
     private var maxAcceptableAQI: String {
         let aqi = self.maxAqi ?? -1
@@ -79,16 +78,19 @@ struct MainView: View {
                             
                             Api().getPollution(latitude: self.latitude ?? -1.0, longitude: self.longitude ?? -1.0) { response in
                                 self.currentAqi = response.aqi
-                                self.aqiDetails = response
+                                self.aqiDetails.response = response
                             }
                         }
                     }
                 }
+                .onTapGesture {
+                    print("it worked 222!")
+                    self.currentView.view = "aqiBreakdown"
+                }
             
             Text("Max Acceptable AQI: " + maxAcceptableAQI)
-                .padding(EdgeInsets(top: 20, leading: 0, bottom: 35, trailing: 0))
+                .padding(EdgeInsets(top: 20, leading: 0, bottom: 15, trailing: 0))
             
-//            AqiBreakdownView(aqiDetails: self.aqiDetails)
             ForecastView()
         }
     }

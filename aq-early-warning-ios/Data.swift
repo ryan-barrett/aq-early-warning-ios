@@ -30,6 +30,14 @@ struct UserSettings: Codable {
     let longitude: Double?
 }
 
+class ResponseContainer: ObservableObject, Codable {
+    var response: PollutionResponse?
+    
+    init(response: PollutionResponse) {
+        self.response = response
+    }
+}
+
 class PollutionResponse: ObservableObject, Decodable, Encodable {
     let latitude: Double?
     let longitude: Double?
