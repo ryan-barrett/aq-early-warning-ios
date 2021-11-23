@@ -26,7 +26,7 @@ class NumbersOnly: ObservableObject {
     @Published var value = "" {
         didSet {
             let filtered = value.filter {
-                return $0.isNumber && Int(value) ?? -1 <= 5 && Int(value) ?? -1 > 0
+                return $0.isNumber && Int(value) ?? -1 <= 501 && Int(value) ?? -1 > 0
             }
             
             if value != filtered {
@@ -83,8 +83,9 @@ struct SettingsView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .font(.title3)
                 .padding()
+                .keyboardType(.numbersAndPunctuation)
                 .alert(isPresented: $showingAlert) {
-                    return Alert(title: Text("Max AQI Value Must Be Between 1 - 5"), dismissButton: .default(Text("Got It")))
+                    return Alert(title: Text("Max AQI Value Must Be Between 1 - 500"), dismissButton: .default(Text("Got It")))
                 }
         }
         .frame(width: 225)
@@ -95,8 +96,6 @@ struct SettingsView: View {
                 self.maxAqi = userSettings.maxAqi
                 self.latitude = userSettings.latitude
                 self.longitude = userSettings.longitude
-                print("GOT HERE", self.backendUserId!)
-                print("GOT HERE2", self.maxAqi ?? 0)
             }
         }
         

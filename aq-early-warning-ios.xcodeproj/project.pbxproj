@@ -23,7 +23,6 @@
 		94759C2E2745DB130080C90E /* ForecastUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94759C2D2745DB130080C90E /* ForecastUtil.swift */; };
 		9476109A2748725B00BC4919 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 947610992748725B00BC4919 /* GoogleService-Info.plist */; };
 		9476109C274C6A1300BC4919 /* ForecastDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476109B274C6A1300BC4919 /* ForecastDetailView.swift */; };
-		9476109E274C8F2900BC4919 /* PollutionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476109D274C8F2900BC4919 /* PollutionUtil.swift */; };
 		94C3320B274341C9002101ED /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3320A274341C9002101ED /* MainView.swift */; };
 		94C3320D2743431E002101ED /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3320C2743431E002101ED /* Api.swift */; };
 		94C3320F27434866002101ED /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3320E27434866002101ED /* SettingsView.swift */; };
@@ -73,7 +72,6 @@
 		94759C2D2745DB130080C90E /* ForecastUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastUtil.swift; sourceTree = "<group>"; };
 		947610992748725B00BC4919 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9476109B274C6A1300BC4919 /* ForecastDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDetailView.swift; sourceTree = "<group>"; };
-		9476109D274C8F2900BC4919 /* PollutionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionUtil.swift; sourceTree = "<group>"; };
 		94C3320A274341C9002101ED /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		94C3320C2743431E002101ED /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		94C3320E27434866002101ED /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				94759C2D2745DB130080C90E /* ForecastUtil.swift */,
-				9476109D274C8F2900BC4919 /* PollutionUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -480,7 +477,6 @@
 				94C3320F27434866002101ED /* SettingsView.swift in Sources */,
 				94C3320D2743431E002101ED /* Api.swift in Sources */,
 				941F8E35273DD7B800C178DB /* ContentView.swift in Sources */,
-				9476109E274C8F2900BC4919 /* PollutionUtil.swift in Sources */,
 				94C3321227437752002101ED /* LocationManager.swift in Sources */,
 				9476109C274C6A1300BC4919 /* ForecastDetailView.swift in Sources */,
 				941F8E33273DD7B800C178DB /* aq_early_warning_iosApp.swift in Sources */,
