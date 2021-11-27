@@ -28,7 +28,7 @@ struct ForecastDetailView: View {
     @AppStorage("maxAqi") var maxAqi: Int?
     @AppStorage("latitude") var latitude: Double?
     @AppStorage("longitude") var longitude: Double?
-    @AppStorage("token") var token: String = ""
+    @AppStorage("backendToken") var backendToken: String = ""
     
     @AppStorage("today") var today: String = ""
     @AppStorage("tomorrow") var tomorrow: String = ""
@@ -55,7 +55,7 @@ struct ForecastDetailView: View {
                         self.currentView.view = "main"
                     }
                     .onAppear {
-                        if (self.token == "") {
+                        if (self.backendToken == "") {
                             self.currentView.view = "signIn"
                         }
                         var relevantEntries: [PollutionForecastEntry] = []

@@ -10,9 +10,10 @@ import SwiftUI
 class Api {
     @AppStorage("token") var token: String = ""
     @AppStorage("backendUserId") var backendUserId: Int = -1
+    @AppStorage("backendToken") var backendToken: String = ""
     
     func authenticate(payload: AuthPaylaod, completion: @escaping (AuthResponse) -> ()) {
-        guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/authenticate/apple") else { return }
+        guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/authenticate") else { return }
         
         guard let encoded = try? JSONEncoder().encode(payload) else {
             print("Failed to encode auth payload")
@@ -22,7 +23,6 @@ class Api {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        request.addValue(token, forHTTPHeaderField: "authorization")
         request.httpBody = encoded
         
         URLSession.shared.dataTask(with: request) { data, _, error in
@@ -47,7 +47,7 @@ class Api {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
-        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        request.addValue("Bearer \(self.backendToken)", forHTTPHeaderField: "authorization")
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if (error != nil) {
@@ -72,7 +72,7 @@ class Api {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
-        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        request.addValue("Bearer \(self.backendToken)", forHTTPHeaderField: "authorization")
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if (error != nil) {
@@ -98,7 +98,7 @@ class Api {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
-        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        request.addValue("Bearer \(self.backendToken)", forHTTPHeaderField: "authorization")
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if (error != nil) {
@@ -121,7 +121,7 @@ class Api {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "PUT"
-        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        request.addValue("Bearer \(self.backendToken)", forHTTPHeaderField: "authorization")
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if (error != nil) {
@@ -148,7 +148,7 @@ class Api {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "PUT"
-        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "authorization")
+        request.addValue("Bearer \(self.backendToken)", forHTTPHeaderField: "authorization")
         request.httpBody = encoded
         
         URLSession.shared.dataTask(with: request) { data, _, error in
@@ -159,6 +159,26 @@ class Api {
             
             DispatchQueue.main.async {
                 completion(res)
+            }
+        }
+        .resume()
+    }
+    
+    func reverseGeocode(latitude: Double, longitude: Double, completion: @escaping (String) -> ()) {
+        guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/maps/geocode?latitude=\(latitude)&longitude=\(longitude)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(self.backendToken)", forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if (error != nil) {
+                print("we got an error :(", error)
+            }
+            let res = try! JSONDecoder().decode(ReverseGeocodeResponse.self, from: data!)
+            
+            DispatchQueue.main.async {
+                completion(res.results[0].formattedAddress)
             }
         }
         .resume()

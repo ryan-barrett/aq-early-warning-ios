@@ -11,7 +11,8 @@ struct AqiBreakdownView: View {
     @EnvironmentObject var aqiDetails: ResponseContainer
     
     @EnvironmentObject var currentView: CurrentView
-    @AppStorage("token") var token: String = ""
+    @AppStorage("backendToken") var backendToken: String = ""
+    @Environment(\.defaultMinListRowHeight) var minRowHeight
     
     var body: some View {
         Text("Components")
@@ -19,17 +20,25 @@ struct AqiBreakdownView: View {
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
             .offset(y: -185)
         
-        VStack {
-            Text("co: \(self.aqiDetails.response!.aqiComponents?.co ?? 0)")
-            Text("no: \(self.aqiDetails.response!.aqiComponents?.no ?? 0)")
-            Text("no2: \(self.aqiDetails.response!.aqiComponents?.no2 ?? 0)")
-            Text("o3: \(self.aqiDetails.response!.aqiComponents?.o3 ?? 0)")
-            Text("so2: \(self.aqiDetails.response!.aqiComponents?.so2 ?? 0)")
-            Text("pm2_5: \(self.aqiDetails.response!.aqiComponents?.pm2_5 ?? 0)")
-            Text("pm10: \(self.aqiDetails.response!.aqiComponents?.pm10 ?? 0)")
-            Text("nh3: \(self.aqiDetails.response!.aqiComponents?.nh3 ?? 0)")
+        List {
+            Text("Carbon Monoxide: \(self.aqiDetails.response!.aqiComponents?.co ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("Nitric Oxide: \(self.aqiDetails.response!.aqiComponents?.no ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("Nitrogen Dioxide: \(self.aqiDetails.response!.aqiComponents?.no2 ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("Ozone: \(self.aqiDetails.response!.aqiComponents?.o3 ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("Sulfur Dioxide: \(self.aqiDetails.response!.aqiComponents?.so2 ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("Particulate Matter 2.5: \(self.aqiDetails.response!.aqiComponents?.pm2_5 ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("Particulate Matter 10: \(self.aqiDetails.response!.aqiComponents?.pm10 ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
+            Text("Ammonia: \(self.aqiDetails.response!.aqiComponents?.nh3 ?? 0)")
+                .frame(maxWidth: .infinity, alignment: .center)
         }
-        .offset(y: -165)
+        .frame(minHeight: minRowHeight * 8)
         .navigationBarTitle(Text("AQI Breakdown"), displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -40,7 +49,7 @@ struct AqiBreakdownView: View {
                         self.currentView.view = "main"
                     }
                     .onAppear {
-                        if (self.token == "") {
+                        if (self.backendToken == "") {
                             self.currentView.view = "signIn"
                         }
                     }

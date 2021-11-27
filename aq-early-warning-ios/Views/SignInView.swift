@@ -17,6 +17,7 @@ struct SignInView: View {
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userId") var userId: String = ""
     @AppStorage("token") var token: String = ""
+    @AppStorage("backendToken") var backendToken: String = ""
     
     @AppStorage("maxAqi") var maxAqi: Int?
     @AppStorage("latitude") var latitude: Double?
@@ -49,22 +50,22 @@ struct SignInView: View {
                     self.userId = userId
                     self.token = token
                     
-                    let payload = AuthPaylaod(userId: self.userId, email: email, firstName: firstName, lastName: lastName)
+                    let payload = AuthPaylaod(userId: self.userId, email: self.email, firstName: self.firstName, lastName: self.lastName, token: "Bearer \(self.token)")
                     
                     Api().authenticate(payload: payload) { response in
-                        if (response.success) {
-                            self.backendUserId = response.backendUserId
-                            self.email = response.email
-                            self.firstName = response.firstName
-                            self.lastName = response.lastName
-                            
-                            Api().getUserSettings { userSettings in
-                                print(userSettings)
-                                self.maxAqi = userSettings.maxAqi
-                                self.latitude = userSettings.latitude
-                                self.longitude = userSettings.longitude
-                                self.currentView.view = "main"
-                            }
+                        print("got here!!!", response)
+                        self.backendUserId = response.iosResponse.backendUserId
+                        self.email = response.iosResponse.email
+                        self.firstName = response.iosResponse.firstName
+                        self.lastName = response.iosResponse.lastName
+                        self.backendToken = response.jwt
+                        
+                        Api().getUserSettings { userSettings in
+                            print(userSettings)
+                            self.maxAqi = userSettings.maxAqi
+                            self.latitude = userSettings.latitude
+                            self.longitude = userSettings.longitude
+                            self.currentView.view = "main"
                         }
                     }
                     break;

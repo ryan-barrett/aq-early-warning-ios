@@ -47,19 +47,20 @@ struct SettingsView: View {
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userId") var userId: String = ""
-    @AppStorage("token") var token: String = ""
+    @AppStorage("backendToken") var backendToken: String = ""
     
     @AppStorage("maxAqi") var maxAqi: Int?
     @AppStorage("latitude") var latitude: Double?
     @AppStorage("longitude") var longitude: Double?
     
     @AppStorage("currentAqi") var currentAqi: Int?
+    @AppStorage("locationName") var locationName: String = ""
+    
     @ObservedObject private var locationManager = LocationManager()
     @EnvironmentObject var currentView: CurrentView
     
     @ObservedObject var localMaxAqi = NumbersOnly()
     @State private var showingAlert = false
-    @State private var locationa = ""
     
     @State var localLat: Double?
     @State var localLong: Double?
@@ -92,10 +93,14 @@ struct SettingsView: View {
         .offset(y: -150)
         .onAppear {
             Api().getUserSettings { userSettings in
-                print("got here user settings", userSettings)
                 self.maxAqi = userSettings.maxAqi
                 self.latitude = userSettings.latitude
                 self.longitude = userSettings.longitude
+                
+                Api().reverseGeocode(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0) { place in
+                    let place = place.components(separatedBy: ",")
+                    self.locationName = place.dropFirst().joined(separator: ",").components(separatedBy: " ").prefix(3).joined(separator: " ")
+                }
             }
         }
         
@@ -104,7 +109,7 @@ struct SettingsView: View {
             .offset(y: -125)
             .font(.title3)
         
-        Text("\(self.latitude ?? 0) \(self.longitude ?? 0)")
+        Text(self.locationName)
             .frame(width: 300)
             .offset(y: -100)
             .font(.title3)
@@ -116,11 +121,10 @@ struct SettingsView: View {
                     Image(systemName: "arrowshape.turn.up.left.fill")
                         .font(.title3)
                         .onTapGesture {
-                            print("it worked!")
                             self.currentView.view = "main"
                         }
                         .onAppear {
-                            if (self.token == "") {
+                            if (self.backendToken == "") {
                                 self.currentView.view = "signIn"
                             }
                         }

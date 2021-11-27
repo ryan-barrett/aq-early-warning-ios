@@ -12,16 +12,20 @@ struct AuthPaylaod: Codable {
     var email: String
     var firstName: String
     var lastName: String
+    var token: String
 }
 
 struct AuthResponse: Codable {
+    let jwt: String
+    let iosResponse: IosResponse
+}
+
+struct IosResponse: Codable {
     let backendUserId: Int
     let email: String
     let firstName: String
     let lastName: String
-    let success: Bool
 }
-
 struct UserSettings: Codable {
     let id: Int
     let userId: Int
@@ -86,4 +90,12 @@ struct PollutionResponseDetail: Codable {
     let pm2_5: Double
     let pm10: Double
     let nh3: Double
+}
+
+struct ReverseGeocodeResponse: Codable {
+    let results: [ReverseGeocodeResult]
+}
+
+struct ReverseGeocodeResult: Codable {
+    let formattedAddress: String
 }

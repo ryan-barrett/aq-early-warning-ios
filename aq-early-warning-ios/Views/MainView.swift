@@ -15,7 +15,7 @@ struct MainView: View {
     @AppStorage("firstName") var firstName: String = ""
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userId") var userId: String = ""
-    @AppStorage("token") var token: String = ""
+    @AppStorage("backendToken") var backendToken: String = ""
     
     @AppStorage("maxAqi") var maxAqi: Int?
     @AppStorage("latitude") var latitude: Double?
@@ -51,7 +51,7 @@ struct MainView: View {
                                 self.currentView.view = "settings"
                             }
                             .onAppear {
-                                if (self.token == "") {
+                                if (self.backendToken == "") {
                                     self.currentView.view = "signIn"
                                 }
                             }
@@ -65,7 +65,7 @@ struct MainView: View {
                 .border(Color.white, width: 4)
                 .padding()
                 .onAppear {
-                    if (self.token == "") {
+                    if (self.backendToken == "") {
                         self.currentView.view = "signIn"
                     } else {
                         Api().getUserSettings { userSettings in

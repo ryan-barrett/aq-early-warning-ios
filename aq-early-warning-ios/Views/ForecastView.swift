@@ -7,11 +7,27 @@
 
 import SwiftUI
 
+struct ForecastDay: Identifiable {
+    let id = UUID()
+    let day: String
+    let low: Int
+    let high: Int
+}
+
+struct ForecastDayRow: View {
+    var row: ForecastDay
+
+    var body: some View {
+        Text("\(row.day):  Low - \(row.low)   High - \(row.high)")
+            .frame(maxWidth: .infinity, alignment: .center)
+    }
+}
+
 struct ForecastView: View {
     @AppStorage("maxAqi") var maxAqi: Int?
     @AppStorage("latitude") var latitude: Double?
     @AppStorage("longitude") var longitude: Double?
-    @AppStorage("token") var token: String = ""
+    @AppStorage("backendToken") var backendToken: String = ""
     
     @AppStorage("today") var today: String = ""
     @AppStorage("tomorrow") var tomorrow: String = ""
@@ -32,7 +48,7 @@ struct ForecastView: View {
             .font(.title2)
             .padding(EdgeInsets(top: 35, leading: 0, bottom: -10, trailing: 0))
             .onAppear {
-                if (self.token == "") {
+                if (self.backendToken == "") {
                     self.currentView.view = "signIn"
                 }
                 else {
@@ -46,10 +62,15 @@ struct ForecastView: View {
                         self.tomorrow = "\(self.forecast[1].day):  Low - \(self.forecast[1].low)   High - \(self.forecast[1].high)"
                         self.twoDay = "\(self.forecast[2].day):  Low - \(self.forecast[2].low)   High - \(self.forecast[2].high)"
                         self.threeDay = "\(self.forecast[3].day):  Low - \(self.forecast[3].low)   High - \(self.forecast[3].high)"
-                        self.fourDay = "\(self.forecast[4].day):  Low - \(self.forecast[4].low)   High - \(self.forecast[4].high)"
+//                        self.fourDay = "\(self.forecast[4].day):  Low - \(self.forecast[4].low)   High - \(self.forecast[4].high)"
                     }
                 }
             }
+        
+//        List(self.forecast) { row in
+//            ForecastDayRow(row: ForecastDay(day: row.day, low: row.low, high: row.high))
+//        }
+//        .frame(maxWidth: .infinity, alignment: .center)
         
         List {
             Text(self.today)
@@ -76,12 +97,12 @@ struct ForecastView: View {
                     self.forecastDetailTitle.day = self.threeDay.components(separatedBy: ":").prefix(1).joined(separator: "")
                     self.currentView.view = "forecastDetail"
                 }
-            Text(self.fourDay)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .onTapGesture {
-                    self.forecastDetailTitle.day = self.fourDay.components(separatedBy: ":").prefix(1).joined(separator: "")
-                    self.currentView.view = "forecastDetail"
-                }
+//            Text(self.fourDay)
+//                .frame(maxWidth: .infinity, alignment: .center)
+//                .onTapGesture {
+//                    self.forecastDetailTitle.day = self.fourDay.components(separatedBy: ":").prefix(1).joined(separator: "")
+//                    self.currentView.view = "forecastDetail"
+//                }
         }
         .frame(minHeight: minRowHeight * 8)
     }
