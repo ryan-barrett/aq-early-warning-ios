@@ -58,6 +58,13 @@ struct ContentView: View {
         .environmentObject(aqiDetails)
         .environmentObject(forecastContainer)
         .environmentObject(forecastDetailTitle)
+        .onAppear {
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            AppDelegate.orientationLock = .portrait
+        }
+        .onDisappear {
+            AppDelegate.orientationLock = .all
+        }
     }
 }
 

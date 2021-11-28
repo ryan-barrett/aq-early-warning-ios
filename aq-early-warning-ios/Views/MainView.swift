@@ -51,7 +51,7 @@ struct MainView: View {
                                 self.currentView.view = "settings"
                             }
                             .onAppear {
-                                if (self.backendToken == "") {
+                                if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                                     self.currentView.view = "signIn"
                                 }
                             }
@@ -65,7 +65,7 @@ struct MainView: View {
                 .border(Color.white, width: 4)
                 .padding()
                 .onAppear {
-                    if (self.backendToken == "") {
+                    if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                         self.currentView.view = "signIn"
                     } else {
                         Api().getUserSettings { userSettings in

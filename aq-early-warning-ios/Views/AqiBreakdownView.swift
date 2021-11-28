@@ -49,7 +49,7 @@ struct AqiBreakdownView: View {
                         self.currentView.view = "main"
                     }
                     .onAppear {
-                        if (self.backendToken == "") {
+                        if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                             self.currentView.view = "signIn"
                         }
                     }

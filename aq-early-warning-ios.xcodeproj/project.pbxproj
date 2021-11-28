@@ -7,11 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D14F8509124BDFDAA633C99 /* Pods_aq_early_warning_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549404CE989CDB28AFAE23DD /* Pods_aq_early_warning_ios.framework */; };
-		6CC42CD635D4B0DCE7E0962D /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C167EEDE42FF4E402B7BF9 /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework */; };
+		26AB019E08E0444749583E3E /* Pods_aq_early_warning_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1871CABCE5CD8669ADB62186 /* Pods_aq_early_warning_ios.framework */; };
+		87D4EEF2FF7608EAF604C717 /* Pods_aq_early_warning_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C351E7442C18A1D21D5D0C57 /* Pods_aq_early_warning_iosTests.framework */; };
+		941AA7A32752F71500551D87 /* JwtUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941AA7A22752F71500551D87 /* JwtUtil.swift */; };
+		941AA7A527530BD700551D87 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7A427530BD700551D87 /* Launch Screen.storyboard */; };
+		941AA7A6275310C100551D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941F8E36273DD7B900C178DB /* Assets.xcassets */; };
+		941AA7B72753173600551D87 /* yeti__58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7A82753173600551D87 /* yeti__58x58.png */; };
+		941AA7B82753173600551D87 /* yeti_167x167.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7A92753173600551D87 /* yeti_167x167.png */; };
+		941AA7B92753173600551D87 /* yeti_87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7AA2753173600551D87 /* yeti_87x87.png */; };
+		941AA7BA2753173600551D87 /* yeti_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7AB2753173600551D87 /* yeti_80x80.png */; };
+		941AA7BB2753173600551D87 /* yeti_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7AC2753173600551D87 /* yeti_20x20.png */; };
+		941AA7BC2753173600551D87 /* yeti_29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7AD2753173600551D87 /* yeti_29x29.png */; };
+		941AA7BD2753173600551D87 /* yeti_1_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7AE2753173600551D87 /* yeti_1_40x40.png */; };
+		941AA7BE2753173600551D87 /* yeti.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7AF2753173600551D87 /* yeti.png */; };
+		941AA7BF2753173600551D87 /* yeti_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7B02753173600551D87 /* yeti_120x120.png */; };
+		941AA7C02753173600551D87 /* yeti_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7B12753173600551D87 /* yeti_76x76.png */; };
+		941AA7C12753173600551D87 /* yeti_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7B22753173600551D87 /* yeti_58x58.png */; };
+		941AA7C22753173600551D87 /* yeti_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7B32753173600551D87 /* yeti_60x60.png */; };
+		941AA7C32753173600551D87 /* yeti_152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7B42753173600551D87 /* yeti_152x152.png */; };
+		941AA7C42753173600551D87 /* yeti_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7B52753173600551D87 /* yeti_1024x1024.png */; };
+		941AA7C52753173600551D87 /* yeti_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 941AA7B62753173600551D87 /* yeti_180x180.png */; };
 		941F8E33273DD7B800C178DB /* aq_early_warning_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E32273DD7B800C178DB /* aq_early_warning_iosApp.swift */; };
 		941F8E35273DD7B800C178DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E34273DD7B800C178DB /* ContentView.swift */; };
-		941F8E37273DD7B900C178DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941F8E36273DD7B900C178DB /* Assets.xcassets */; };
 		941F8E3A273DD7B900C178DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941F8E39273DD7B900C178DB /* Preview Assets.xcassets */; };
 		941F8E44273DD7BA00C178DB /* aq_early_warning_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E43273DD7BA00C178DB /* aq_early_warning_iosTests.swift */; };
 		941F8E4E273DD7BA00C178DB /* aq_early_warning_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F8E4D273DD7BA00C178DB /* aq_early_warning_iosUITests.swift */; };
@@ -28,7 +45,7 @@
 		94C3320F27434866002101ED /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3320E27434866002101ED /* SettingsView.swift */; };
 		94C3321227437752002101ED /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C3321127437752002101ED /* LocationManager.swift */; };
 		94C3321627437A86002101ED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C3321527437A86002101ED /* MapKit.framework */; };
-		A63B7D2E11E6AB682E566C0E /* Pods_aq_early_warning_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B14333445BD7B7BF1DA845D /* Pods_aq_early_warning_iosTests.framework */; };
+		FA2E61039CF81A831C4B6D2D /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178E405A08AB4235F111266D /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,15 +66,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B14333445BD7B7BF1DA845D /* Pods_aq_early_warning_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aq_early_warning_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30B8EF1D99EFAD0C55FC6A3A /* Pods-aq-early-warning-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios.release.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios.release.xcconfig"; sourceTree = "<group>"; };
-		45790CE0B74BF614E99D5081 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		549404CE989CDB28AFAE23DD /* Pods_aq_early_warning_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aq_early_warning_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		74127DCE54D38FAD19506DE5 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		178E405A08AB4235F111266D /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1871CABCE5CD8669ADB62186 /* Pods_aq_early_warning_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aq_early_warning_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C6B0769CBD90AD8B7F35EDA /* Pods-aq-early-warning-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios.release.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios.release.xcconfig"; sourceTree = "<group>"; };
+		3C2978F387934A70D26F062C /* Pods-aq-early-warning-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-iosTests/Pods-aq-early-warning-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		52892A9057E15A3943D5970C /* Pods-aq-early-warning-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios.debug.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		71C0DB8E61E4EAB4B2B65466 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		941AA7A22752F71500551D87 /* JwtUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwtUtil.swift; sourceTree = "<group>"; };
+		941AA7A427530BD700551D87 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		941AA7A82753173600551D87 /* yeti__58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti__58x58.png; sourceTree = "<group>"; };
+		941AA7A92753173600551D87 /* yeti_167x167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_167x167.png; sourceTree = "<group>"; };
+		941AA7AA2753173600551D87 /* yeti_87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_87x87.png; sourceTree = "<group>"; };
+		941AA7AB2753173600551D87 /* yeti_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_80x80.png; sourceTree = "<group>"; };
+		941AA7AC2753173600551D87 /* yeti_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_20x20.png; sourceTree = "<group>"; };
+		941AA7AD2753173600551D87 /* yeti_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_29x29.png; sourceTree = "<group>"; };
+		941AA7AE2753173600551D87 /* yeti_1_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_1_40x40.png; sourceTree = "<group>"; };
+		941AA7AF2753173600551D87 /* yeti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti.png; sourceTree = "<group>"; };
+		941AA7B02753173600551D87 /* yeti_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_120x120.png; sourceTree = "<group>"; };
+		941AA7B12753173600551D87 /* yeti_76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_76x76.png; sourceTree = "<group>"; };
+		941AA7B22753173600551D87 /* yeti_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_58x58.png; sourceTree = "<group>"; };
+		941AA7B32753173600551D87 /* yeti_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_60x60.png; sourceTree = "<group>"; };
+		941AA7B42753173600551D87 /* yeti_152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_152x152.png; sourceTree = "<group>"; };
+		941AA7B52753173600551D87 /* yeti_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_1024x1024.png; sourceTree = "<group>"; };
+		941AA7B62753173600551D87 /* yeti_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeti_180x180.png; sourceTree = "<group>"; };
 		941F8E2F273DD7B800C178DB /* aq-early-warning-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "aq-early-warning-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941F8E32273DD7B800C178DB /* aq_early_warning_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aq_early_warning_iosApp.swift; sourceTree = "<group>"; };
 		941F8E34273DD7B800C178DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		941F8E36273DD7B900C178DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		941F8E36273DD7B900C178DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "aq-early-warning-ios/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		941F8E39273DD7B900C178DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		941F8E3F273DD7BA00C178DB /* aq-early-warning-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "aq-early-warning-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		941F8E43273DD7BA00C178DB /* aq_early_warning_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aq_early_warning_iosTests.swift; sourceTree = "<group>"; };
@@ -78,10 +113,9 @@
 		94C3321127437752002101ED /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		94C3321327437A86002101ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		94C3321527437A86002101ED /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		A442B039820F8DF4898E0455 /* Pods-aq-early-warning-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-iosTests/Pods-aq-early-warning-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A6C167EEDE42FF4E402B7BF9 /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1A1F296069AB129BD0AF809 /* Pods-aq-early-warning-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios.debug.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		E9AF7654D40123013B4272D8 /* Pods-aq-early-warning-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-iosTests.release.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-iosTests/Pods-aq-early-warning-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		BAA87EA56010B8D59ED8770C /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C351E7442C18A1D21D5D0C57 /* Pods_aq_early_warning_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_aq_early_warning_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C83DB44B561EE38DB817345D /* Pods-aq-early-warning-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aq-early-warning-iosTests.release.xcconfig"; path = "Target Support Files/Pods-aq-early-warning-iosTests/Pods-aq-early-warning-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C3321627437A86002101ED /* MapKit.framework in Frameworks */,
-				2D14F8509124BDFDAA633C99 /* Pods_aq_early_warning_ios.framework in Frameworks */,
+				26AB019E08E0444749583E3E /* Pods_aq_early_warning_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A63B7D2E11E6AB682E566C0E /* Pods_aq_early_warning_iosTests.framework in Frameworks */,
+				87D4EEF2FF7608EAF604C717 /* Pods_aq_early_warning_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,13 +140,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC42CD635D4B0DCE7E0962D /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework in Frameworks */,
+				FA2E61039CF81A831C4B6D2D /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		941AA7A72753173600551D87 /* yeti */ = {
+			isa = PBXGroup;
+			children = (
+				941AA7A82753173600551D87 /* yeti__58x58.png */,
+				941AA7A92753173600551D87 /* yeti_167x167.png */,
+				941AA7AA2753173600551D87 /* yeti_87x87.png */,
+				941AA7AB2753173600551D87 /* yeti_80x80.png */,
+				941AA7AC2753173600551D87 /* yeti_20x20.png */,
+				941AA7AD2753173600551D87 /* yeti_29x29.png */,
+				941AA7AE2753173600551D87 /* yeti_1_40x40.png */,
+				941AA7AF2753173600551D87 /* yeti.png */,
+				941AA7B02753173600551D87 /* yeti_120x120.png */,
+				941AA7B12753173600551D87 /* yeti_76x76.png */,
+				941AA7B22753173600551D87 /* yeti_58x58.png */,
+				941AA7B32753173600551D87 /* yeti_60x60.png */,
+				941AA7B42753173600551D87 /* yeti_152x152.png */,
+				941AA7B52753173600551D87 /* yeti_1024x1024.png */,
+				941AA7B62753173600551D87 /* yeti_180x180.png */,
+			);
+			path = yeti;
+			sourceTree = "<group>";
+		};
 		941F8E26273DD7B800C178DB = {
 			isa = PBXGroup;
 			children = (
@@ -147,9 +203,11 @@
 				941F8E32273DD7B800C178DB /* aq_early_warning_iosApp.swift */,
 				941F8E34273DD7B800C178DB /* ContentView.swift */,
 				941F8E36273DD7B900C178DB /* Assets.xcassets */,
+				941AA7A72753173600551D87 /* yeti */,
 				941F8E38273DD7B900C178DB /* Preview Content */,
 				941F8E62273DDD4600C178DB /* Data.swift */,
 				94C3320C2743431E002101ED /* Api.swift */,
+				941AA7A427530BD700551D87 /* Launch Screen.storyboard */,
 			);
 			path = "aq-early-warning-ios";
 			sourceTree = "<group>";
@@ -183,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				94759C2D2745DB130080C90E /* ForecastUtil.swift */,
+				941AA7A22752F71500551D87 /* JwtUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -212,9 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				94C3321527437A86002101ED /* MapKit.framework */,
-				549404CE989CDB28AFAE23DD /* Pods_aq_early_warning_ios.framework */,
-				A6C167EEDE42FF4E402B7BF9 /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework */,
-				1B14333445BD7B7BF1DA845D /* Pods_aq_early_warning_iosTests.framework */,
+				1871CABCE5CD8669ADB62186 /* Pods_aq_early_warning_ios.framework */,
+				178E405A08AB4235F111266D /* Pods_aq_early_warning_ios_aq_early_warning_iosUITests.framework */,
+				C351E7442C18A1D21D5D0C57 /* Pods_aq_early_warning_iosTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,12 +281,12 @@
 		E9515B1D713E16631CC9167E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D1A1F296069AB129BD0AF809 /* Pods-aq-early-warning-ios.debug.xcconfig */,
-				30B8EF1D99EFAD0C55FC6A3A /* Pods-aq-early-warning-ios.release.xcconfig */,
-				45790CE0B74BF614E99D5081 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig */,
-				74127DCE54D38FAD19506DE5 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig */,
-				A442B039820F8DF4898E0455 /* Pods-aq-early-warning-iosTests.debug.xcconfig */,
-				E9AF7654D40123013B4272D8 /* Pods-aq-early-warning-iosTests.release.xcconfig */,
+				52892A9057E15A3943D5970C /* Pods-aq-early-warning-ios.debug.xcconfig */,
+				2C6B0769CBD90AD8B7F35EDA /* Pods-aq-early-warning-ios.release.xcconfig */,
+				BAA87EA56010B8D59ED8770C /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig */,
+				71C0DB8E61E4EAB4B2B65466 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig */,
+				3C2978F387934A70D26F062C /* Pods-aq-early-warning-iosTests.debug.xcconfig */,
+				C83DB44B561EE38DB817345D /* Pods-aq-early-warning-iosTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -239,11 +298,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 941F8E53273DD7BA00C178DB /* Build configuration list for PBXNativeTarget "aq-early-warning-ios" */;
 			buildPhases = (
-				83F7009D62B1E447E7F02665 /* [CP] Check Pods Manifest.lock */,
+				64294E620A49F47B3B239BAF /* [CP] Check Pods Manifest.lock */,
 				941F8E2B273DD7B800C178DB /* Sources */,
 				941F8E2C273DD7B800C178DB /* Frameworks */,
 				941F8E2D273DD7B800C178DB /* Resources */,
-				1ED8494C183F2488C2DB3BA0 /* [CP] Embed Pods Frameworks */,
+				9E48EDF707A491FE9D0BD69F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,7 +317,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 941F8E56273DD7BA00C178DB /* Build configuration list for PBXNativeTarget "aq-early-warning-iosTests" */;
 			buildPhases = (
-				711CB22CE9E973EE32B349EF /* [CP] Check Pods Manifest.lock */,
+				68C4A21591912F7C49A53145 /* [CP] Check Pods Manifest.lock */,
 				941F8E3B273DD7BA00C178DB /* Sources */,
 				941F8E3C273DD7BA00C178DB /* Frameworks */,
 				941F8E3D273DD7BA00C178DB /* Resources */,
@@ -277,11 +336,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 941F8E59273DD7BA00C178DB /* Build configuration list for PBXNativeTarget "aq-early-warning-iosUITests" */;
 			buildPhases = (
-				88646E058E339C12E3B079F7 /* [CP] Check Pods Manifest.lock */,
+				372660EA1D3501C08645EF9C /* [CP] Check Pods Manifest.lock */,
 				941F8E45273DD7BA00C178DB /* Sources */,
 				941F8E46273DD7BA00C178DB /* Frameworks */,
+				02F464E63C42931C8569AD47 /* [CP] Embed Pods Frameworks */,
 				941F8E47273DD7BA00C178DB /* Resources */,
-				BDB9A94AB6435D00C8FAA4F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -341,9 +400,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				941AA7B72753173600551D87 /* yeti__58x58.png in Resources */,
+				941AA7BC2753173600551D87 /* yeti_29x29.png in Resources */,
+				941AA7BE2753173600551D87 /* yeti.png in Resources */,
+				941AA7BB2753173600551D87 /* yeti_20x20.png in Resources */,
+				941AA7B82753173600551D87 /* yeti_167x167.png in Resources */,
 				941F8E3A273DD7B900C178DB /* Preview Assets.xcassets in Resources */,
-				941F8E37273DD7B900C178DB /* Assets.xcassets in Resources */,
+				941AA7C52753173600551D87 /* yeti_180x180.png in Resources */,
+				941AA7BA2753173600551D87 /* yeti_80x80.png in Resources */,
+				941AA7C12753173600551D87 /* yeti_58x58.png in Resources */,
+				941AA7A527530BD700551D87 /* Launch Screen.storyboard in Resources */,
+				941AA7A6275310C100551D87 /* Assets.xcassets in Resources */,
 				9476109A2748725B00BC4919 /* GoogleService-Info.plist in Resources */,
+				941AA7B92753173600551D87 /* yeti_87x87.png in Resources */,
+				941AA7BF2753173600551D87 /* yeti_120x120.png in Resources */,
+				941AA7BD2753173600551D87 /* yeti_1_40x40.png in Resources */,
+				941AA7C32753173600551D87 /* yeti_152x152.png in Resources */,
+				941AA7C02753173600551D87 /* yeti_76x76.png in Resources */,
+				941AA7C22753173600551D87 /* yeti_60x60.png in Resources */,
+				941AA7C42753173600551D87 /* yeti_1024x1024.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,68 +439,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1ED8494C183F2488C2DB3BA0 /* [CP] Embed Pods Frameworks */ = {
+		02F464E63C42931C8569AD47 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		711CB22CE9E973EE32B349EF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-aq-early-warning-iosTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		83F7009D62B1E447E7F02665 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-aq-early-warning-ios-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		88646E058E339C12E3B079F7 /* [CP] Check Pods Manifest.lock */ = {
+		372660EA1D3501C08645EF9C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,21 +478,65 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BDB9A94AB6435D00C8FAA4F8 /* [CP] Embed Pods Frameworks */ = {
+		64294E620A49F47B3B239BAF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-aq-early-warning-ios-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios-aq-early-warning-iosUITests/Pods-aq-early-warning-ios-aq-early-warning-iosUITests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68C4A21591912F7C49A53145 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-aq-early-warning-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E48EDF707A491FE9D0BD69F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-aq-early-warning-ios/Pods-aq-early-warning-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -483,6 +558,7 @@
 				94C3320B274341C9002101ED /* MainView.swift in Sources */,
 				94759C2E2745DB130080C90E /* ForecastUtil.swift in Sources */,
 				941F8E63273DDD4600C178DB /* Data.swift in Sources */,
+				941AA7A32752F71500551D87 /* JwtUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,29 +713,34 @@
 		};
 		941F8E54273DD7BA00C178DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1A1F296069AB129BD0AF809 /* Pods-aq-early-warning-ios.debug.xcconfig */;
+			baseConfigurationReference = 52892A9057E15A3943D5970C /* Pods-aq-early-warning-ios.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIcon;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "aq-early-warning-ios/aq-early-warning-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"aq-early-warning-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = F6AWFYVDL5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "aq-early-warning-ios/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AQ Alert";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use this information to ensure that you get up to date reports on the air quality in your area";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "t.aq-early-warning-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -670,29 +751,34 @@
 		};
 		941F8E55273DD7BA00C178DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30B8EF1D99EFAD0C55FC6A3A /* Pods-aq-early-warning-ios.release.xcconfig */;
+			baseConfigurationReference = 2C6B0769CBD90AD8B7F35EDA /* Pods-aq-early-warning-ios.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIcon;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "aq-early-warning-ios/aq-early-warning-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"aq-early-warning-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = F6AWFYVDL5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "aq-early-warning-ios/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AQ Alert";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use this information to ensure that you get up to date reports on the air quality in your area";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "t.aq-early-warning-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -703,7 +789,7 @@
 		};
 		941F8E57273DD7BA00C178DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A442B039820F8DF4898E0455 /* Pods-aq-early-warning-iosTests.debug.xcconfig */;
+			baseConfigurationReference = 3C2978F387934A70D26F062C /* Pods-aq-early-warning-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -729,7 +815,7 @@
 		};
 		941F8E58273DD7BA00C178DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9AF7654D40123013B4272D8 /* Pods-aq-early-warning-iosTests.release.xcconfig */;
+			baseConfigurationReference = C83DB44B561EE38DB817345D /* Pods-aq-early-warning-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -755,7 +841,7 @@
 		};
 		941F8E5A273DD7BA00C178DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45790CE0B74BF614E99D5081 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig */;
+			baseConfigurationReference = BAA87EA56010B8D59ED8770C /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -779,7 +865,7 @@
 		};
 		941F8E5B273DD7BA00C178DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74127DCE54D38FAD19506DE5 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig */;
+			baseConfigurationReference = 71C0DB8E61E4EAB4B2B65466 /* Pods-aq-early-warning-ios-aq-early-warning-iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

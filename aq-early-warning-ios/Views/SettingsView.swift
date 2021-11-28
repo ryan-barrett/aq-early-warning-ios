@@ -124,7 +124,7 @@ struct SettingsView: View {
                             self.currentView.view = "main"
                         }
                         .onAppear {
-                            if (self.backendToken == "") {
+                            if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                                 self.currentView.view = "signIn"
                             }
                         }
@@ -137,6 +137,11 @@ struct SettingsView: View {
                 Api().updateUserLocation(userId: self.backendUserId!, latitude: localLat!, longitude: localLong!) { settings in
                     self.latitude = settings.latitude
                     self.longitude = settings.longitude
+                    
+                    Api().reverseGeocode(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0) { place in
+                        let place = place.components(separatedBy: ",")
+                        self.locationName = place.dropFirst().joined(separator: ",").components(separatedBy: " ").prefix(3).joined(separator: " ")
+                    }
                 }
             }
             .frame(height: 44)

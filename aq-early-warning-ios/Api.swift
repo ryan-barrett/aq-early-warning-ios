@@ -12,8 +12,13 @@ class Api {
     @AppStorage("backendUserId") var backendUserId: Int = -1
     @AppStorage("backendToken") var backendToken: String = ""
     
-    func authenticate(payload: AuthPaylaod, completion: @escaping (AuthResponse) -> ()) {
+    func authenticate(userId: String, email: String, firstName: String, lastName: String, token: String, completion: @escaping (AuthResponse) -> ()) {
+        let uuid = NSUUID().uuidString.lowercased()
+        
+        let payload = AuthPaylaod(userId: userId, email: email == "" ? "\(uuid)@notreal.com" : email, firstName: firstName == "" ? uuid : firstName, lastName: lastName == "" ? uuid : lastName, token: "Bearer \(token)")
+        
         guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/authenticate") else { return }
+        print("AUTH PAYLOAD", payload)
         
         guard let encoded = try? JSONEncoder().encode(payload) else {
             print("Failed to encode auth payload")
@@ -178,7 +183,7 @@ class Api {
             let res = try! JSONDecoder().decode(ReverseGeocodeResponse.self, from: data!)
             
             DispatchQueue.main.async {
-                completion(res.results[0].formattedAddress)
+                completion(res.results.count > 0 ? res.results[0].formattedAddress : "")
             }
         }
         .resume()

@@ -48,7 +48,7 @@ struct ForecastView: View {
             .font(.title2)
             .padding(EdgeInsets(top: 35, leading: 0, bottom: -10, trailing: 0))
             .onAppear {
-                if (self.backendToken == "") {
+                if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                     self.currentView.view = "signIn"
                 }
                 else {
@@ -58,11 +58,11 @@ struct ForecastView: View {
                         
                         
                         // TODO: this is fragile, it needs to be redone properly
-                        self.today = "\(self.forecast[0].day):  Low - \(self.forecast[0].low)   High - \(self.forecast[0].high)"
-                        self.tomorrow = "\(self.forecast[1].day):  Low - \(self.forecast[1].low)   High - \(self.forecast[1].high)"
-                        self.twoDay = "\(self.forecast[2].day):  Low - \(self.forecast[2].low)   High - \(self.forecast[2].high)"
-                        self.threeDay = "\(self.forecast[3].day):  Low - \(self.forecast[3].low)   High - \(self.forecast[3].high)"
-//                        self.fourDay = "\(self.forecast[4].day):  Low - \(self.forecast[4].low)   High - \(self.forecast[4].high)"
+                        self.today = self.forecast.count > 0 ? "\(self.forecast[0].day):  Low - \(self.forecast[0].low)   High - \(self.forecast[0].high)" : "-"
+                        self.tomorrow = self.forecast.count > 1 ? "\(self.forecast[1].day):  Low - \(self.forecast[1].low)   High - \(self.forecast[1].high)" : "-"
+                        self.twoDay = self.forecast.count > 2 ? "\(self.forecast[2].day):  Low - \(self.forecast[2].low)   High - \(self.forecast[2].high)" : "-"
+                        self.threeDay = self.forecast.count > 3 ? "\(self.forecast[3].day):  Low - \(self.forecast[3].low)   High - \(self.forecast[3].high)" : "-"
+                        self.fourDay = self.forecast.count > 4 ? "\(self.forecast[4].day):  Low - \(self.forecast[4].low)   High - \(self.forecast[4].high)" : "-"
                     }
                 }
             }
@@ -97,12 +97,12 @@ struct ForecastView: View {
                     self.forecastDetailTitle.day = self.threeDay.components(separatedBy: ":").prefix(1).joined(separator: "")
                     self.currentView.view = "forecastDetail"
                 }
-//            Text(self.fourDay)
-//                .frame(maxWidth: .infinity, alignment: .center)
-//                .onTapGesture {
-//                    self.forecastDetailTitle.day = self.fourDay.components(separatedBy: ":").prefix(1).joined(separator: "")
-//                    self.currentView.view = "forecastDetail"
-//                }
+            Text(self.fourDay)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .onTapGesture {
+                    self.forecastDetailTitle.day = self.fourDay.components(separatedBy: ":").prefix(1).joined(separator: "")
+                    self.currentView.view = "forecastDetail"
+                }
         }
         .frame(minHeight: minRowHeight * 8)
     }

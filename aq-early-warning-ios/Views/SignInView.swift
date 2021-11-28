@@ -50,9 +50,7 @@ struct SignInView: View {
                     self.userId = userId
                     self.token = token
                     
-                    let payload = AuthPaylaod(userId: self.userId, email: self.email, firstName: self.firstName, lastName: self.lastName, token: "Bearer \(self.token)")
-                    
-                    Api().authenticate(payload: payload) { response in
+                    Api().authenticate(userId: self.userId, email: email, firstName: firstName, lastName: lastName, token: self.token) { response in
                         print("got here!!!", response)
                         self.backendUserId = response.iosResponse.backendUserId
                         self.email = response.iosResponse.email
