@@ -22,6 +22,7 @@ struct aq_early_warning_iosApp: App {
 }
 
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
+    @AppStorage("userId") var userId: String = ""
     static var orientationLock = UIInterfaceOrientationMask.all
     
     func application(_ application: UIApplication, supportedInterfaceOrientationFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -90,11 +91,11 @@ extension AppDelegate {
             userInfo: tokenDict)
         
         if Messaging.messaging().fcmToken != nil {
-            Messaging.messaging().subscribe(toTopic: "foo")
+            Messaging.messaging().subscribe(toTopic: self.userId)
         }
     }
     
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        Messaging.messaging().subscribe(toTopic: "foo")
+        Messaging.messaging().subscribe(toTopic: self.userId)
     }
 }

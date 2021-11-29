@@ -153,6 +153,11 @@ struct SettingsView: View {
                 localLong = location.coordinate.longitude
             }
         }
-        
+        Image("yeti_peace_left")
+            .resizable()
+            .frame(width: 300, height: 300)
+            .padding(.top, -100)
+            .padding(.bottom, -195)
+            .offset(x: -70, y: 50)
     }
 }

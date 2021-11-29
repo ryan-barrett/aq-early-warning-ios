@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject private var locationManager = LocationManager()
     @Environment(\.colorScheme) var colorScheme
     
     @AppStorage("backendUserId") var backendUserId: Int?
@@ -20,6 +21,7 @@ struct MainView: View {
     @AppStorage("maxAqi") var maxAqi: Int?
     @AppStorage("latitude") var latitude: Double?
     @AppStorage("longitude") var longitude: Double?
+    @AppStorage("locationName") var locationName: String = ""
     
     @AppStorage("currentAqi") var currentAqi: Int?
     
@@ -36,11 +38,20 @@ struct MainView: View {
         }
     }
     
+    private var imageTitle: String {
+        if (self.currentAqi ?? 0 >= self.maxAqi ?? 0) {
+            return "yeti_sad"
+        }
+        else {
+            return "yeti_happy"
+        }
+    }
+    
     var body: some View {
         ScrollView {
             Text("AQI")
                 .font(.largeTitle)
-                .padding(EdgeInsets(top: 40, leading: 0, bottom: 10, trailing: 0))
+                .padding(EdgeInsets(top: 30, leading: 0, bottom: 15, trailing: 0))
                 .navigationBarTitle(Text("Current Conditions"), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -54,6 +65,20 @@ struct MainView: View {
                                 if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                                     self.currentView.view = "signIn"
                                 }
+                                
+                                if (self.latitude == nil || self.longitude == nil) {
+                                    if let location = locationManager.location {
+                                        Api().updateUserLocation(userId: self.backendUserId!, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { settings in
+                                            self.latitude = settings.latitude
+                                            self.longitude = settings.longitude
+                                            
+                                            Api().reverseGeocode(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0) { place in
+                                                let place = place.components(separatedBy: ",")
+                                                self.locationName = place.dropFirst().joined(separator: ",").components(separatedBy: " ").prefix(3).joined(separator: " ")
+                                            }
+                                        }
+                                    }
+                                }
                             }
                     }
                 }
@@ -63,7 +88,6 @@ struct MainView: View {
                 .font(.largeTitle)
                 .padding()
                 .border(Color.white, width: 4)
-                .padding()
                 .onAppear {
                     if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                         self.currentView.view = "signIn"
@@ -73,8 +97,6 @@ struct MainView: View {
                             self.maxAqi = userSettings.maxAqi
                             self.latitude = userSettings.latitude
                             self.longitude = userSettings.longitude
-                            print("GOT HERE", self.backendUserId!)
-                            print("GOT HERE2", self.maxAqi ?? 0)
                             
                             Api().getPollution(latitude: self.latitude ?? -1.0, longitude: self.longitude ?? -1.0) { response in
                                 self.currentAqi = response.aqi
@@ -84,14 +106,19 @@ struct MainView: View {
                     }
                 }
                 .onTapGesture {
-                    print("it worked 222!")
                     self.currentView.view = "aqiBreakdown"
                 }
             
             Text("Max Acceptable AQI: " + maxAcceptableAQI)
-                .padding(EdgeInsets(top: 20, leading: 0, bottom: 15, trailing: 0))
+                .padding(EdgeInsets(top: 20, leading: 0, bottom: -10, trailing: 0))
             
             ForecastView()
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: -10, trailing: 0))
+            
+            Image(imageTitle)
+                .resizable()
+                .frame(width: 300, height: 300)
+                .padding(.top, -115)
         }
     }
 }

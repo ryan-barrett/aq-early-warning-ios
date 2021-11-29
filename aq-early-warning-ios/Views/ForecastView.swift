@@ -46,7 +46,7 @@ struct ForecastView: View {
     var body: some View {
         Text("Forecast")
             .font(.title2)
-            .padding(EdgeInsets(top: 35, leading: 0, bottom: -10, trailing: 0))
+            .padding(EdgeInsets(top: 35, leading: 0, bottom: 0, trailing: 0))
             .onAppear {
                 if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                     self.currentView.view = "signIn"

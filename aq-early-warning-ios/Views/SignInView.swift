@@ -27,6 +27,17 @@ struct SignInView: View {
     @EnvironmentObject var currentView: CurrentView
     
     var body: some View {
+        Text("Login")
+            .offset(y: -125)
+            .font(.title)
+        
+        Image("yeti")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 300, height: 300, alignment: .center)
+            .cornerRadius(30)
+            .offset(y: -100)
+        
         SignInWithAppleButton(.continue) { request in
             request.requestedScopes = [.email, .fullName]
         } onCompletion: { result in
@@ -78,9 +89,10 @@ struct SignInView: View {
         .signInWithAppleButtonStyle(
             colorScheme == .dark ? .white : .black
         )
-        .navigationBarTitle(Text("AQ Early Warning"), displayMode: .inline)
-        .frame(height: 50)
+        .navigationBarTitle(Text("AQ Alert"), displayMode: .inline)
+        .frame(width: 375, height: 50)
         .padding()
         .cornerRadius(8)
+        .offset(y: -50)
     }
 }
