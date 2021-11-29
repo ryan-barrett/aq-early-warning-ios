@@ -55,6 +55,8 @@ struct AqiBreakdownView: View {
                     }
             }
         }
+        .padding(.bottom, 25)
+        
         Image("yeti_point_up")
             .resizable()
             .frame(width: 300, height: 300)

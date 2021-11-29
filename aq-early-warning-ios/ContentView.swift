@@ -65,6 +65,7 @@ struct ContentView: View {
         .onDisappear {
             AppDelegate.orientationLock = .all
         }
+        .preferredColorScheme(.dark)
     }
 }
 

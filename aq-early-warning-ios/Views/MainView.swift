@@ -48,10 +48,10 @@ struct MainView: View {
     }
     
     var body: some View {
-        ScrollView {
+        VStack(spacing: 0) {
             Text("AQI")
                 .font(.largeTitle)
-                .padding(EdgeInsets(top: 30, leading: 0, bottom: 15, trailing: 0))
+                .padding(EdgeInsets(top: 200, leading: 0, bottom: 15, trailing: 0))
                 .navigationBarTitle(Text("Current Conditions"), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -110,15 +110,18 @@ struct MainView: View {
                 }
             
             Text("Max Acceptable AQI: " + maxAcceptableAQI)
-                .padding(EdgeInsets(top: 20, leading: 0, bottom: -10, trailing: 0))
+                .padding(.top, 20)
+                .padding(.bottom, -10)
             
             ForecastView()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: -10, trailing: 0))
+                .padding(.top, 5)
+                .padding(.bottom, 5)
             
             Image(imageTitle)
                 .resizable()
                 .frame(width: 300, height: 300)
-                .padding(.top, -115)
+                    .padding(.top, -115)
         }
+        .padding(.bottom, 160)
     }
 }
