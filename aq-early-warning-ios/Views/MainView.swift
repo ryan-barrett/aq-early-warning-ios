@@ -51,14 +51,13 @@ struct MainView: View {
         VStack(spacing: 0) {
             Text("AQI")
                 .font(.largeTitle)
-                .padding(EdgeInsets(top: 200, leading: 0, bottom: 15, trailing: 0))
+                .padding(EdgeInsets(top: 210, leading: 0, bottom: 15, trailing: 0))
                 .navigationBarTitle(Text("Current Conditions"), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Image(systemName: "gearshape.fill")
                             .font(.title3)
                             .onTapGesture {
-                                print("it worked!")
                                 self.currentView.view = "settings"
                             }
                             .onAppear {
@@ -84,10 +83,11 @@ struct MainView: View {
                 }
             
             Text(String(self.currentAqi ?? 0))
-                .frame(width: 50)
+                .frame(width: 60)
                 .font(.largeTitle)
                 .padding()
-                .border(Color.white, width: 4)
+                .border(self.maxAqi ?? 0 > self.currentAqi ?? 0 ? Color.white : Color.red, width: 4)
+                .foregroundColor(self.maxAqi ?? 0 < self.currentAqi ?? 0 ? .red : .white)
                 .onAppear {
                     if (self.backendToken == "" || JwtUtil().isJwtExpired(jwt: self.backendToken)) {
                         self.currentView.view = "signIn"
@@ -109,6 +109,18 @@ struct MainView: View {
                     self.currentView.view = "aqiBreakdown"
                 }
             
+            HStack {
+                Text("Air Quality Breakdown")
+                    .font(.caption)
+                
+                Image(systemName: "chevron.forward")
+                    .font(.caption)
+            }
+            .padding(.top, 20)
+            .onTapGesture {
+                self.currentView.view = "aqiBreakdown"
+            }
+            
             Text("Max Acceptable AQI: " + maxAcceptableAQI)
                 .padding(.top, 20)
                 .padding(.bottom, -10)
@@ -120,7 +132,7 @@ struct MainView: View {
             Image(imageTitle)
                 .resizable()
                 .frame(width: 300, height: 300)
-                    .padding(.top, -115)
+                .padding(.top, -155)
         }
         .padding(.bottom, 160)
     }

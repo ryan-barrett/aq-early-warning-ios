@@ -16,7 +16,7 @@ struct ForecastDay: Identifiable {
 
 struct ForecastDayRow: View {
     var row: ForecastDay
-
+    
     var body: some View {
         Text("\(row.day):  Low - \(row.low)   High - \(row.high)")
             .frame(maxWidth: .infinity, alignment: .center)
@@ -67,42 +67,66 @@ struct ForecastView: View {
                 }
             }
         
-//        List(self.forecast) { row in
-//            ForecastDayRow(row: ForecastDay(day: row.day, low: row.low, high: row.high))
-//        }
-//        .frame(maxWidth: .infinity, alignment: .center)
-        
         List {
-            Text(self.today)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .onTapGesture {
-                    self.forecastDetailTitle.day = self.today.components(separatedBy: ":").prefix(1).joined(separator: "")
-                    self.currentView.view = "forecastDetail"
-                }
-            Text(self.tomorrow)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .onTapGesture {
-                    self.forecastDetailTitle.day = self.tomorrow.components(separatedBy: ":").prefix(1).joined(separator: "")
-                    self.currentView.view = "forecastDetail"
-                }
-            Text(self.twoDay)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .onTapGesture {
-                    self.forecastDetailTitle.day = self.twoDay.components(separatedBy: ":").prefix(1).joined(separator: "")
-                    self.currentView.view = "forecastDetail"
-                }
-            Text(self.threeDay)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .onTapGesture {
-                    self.forecastDetailTitle.day = self.threeDay.components(separatedBy: ":").prefix(1).joined(separator: "")
-                    self.currentView.view = "forecastDetail"
-                }
-            Text(self.fourDay)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .onTapGesture {
-                    self.forecastDetailTitle.day = self.fourDay.components(separatedBy: ":").prefix(1).joined(separator: "")
-                    self.currentView.view = "forecastDetail"
-                }
+            HStack {
+                Text(self.today)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+                Image(systemName: "chevron.forward")
+                    .font(.title3)
+            }
+            .onTapGesture {
+                self.forecastDetailTitle.day = self.today.components(separatedBy: ":").prefix(1).joined(separator: "")
+                self.currentView.view = "forecastDetail"
+            }
+            
+            HStack {
+                Text(self.tomorrow)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+                Image(systemName: "chevron.forward")
+                    .font(.title3)
+            }
+            .onTapGesture {
+                self.forecastDetailTitle.day = self.tomorrow.components(separatedBy: ":").prefix(1).joined(separator: "")
+                self.currentView.view = "forecastDetail"
+            }
+            
+            HStack {
+                Text(self.twoDay)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+                Image(systemName: "chevron.forward")
+                    .font(.title3)
+            }
+            .onTapGesture {
+                self.forecastDetailTitle.day = self.twoDay.components(separatedBy: ":").prefix(1).joined(separator: "")
+                self.currentView.view = "forecastDetail"
+            }
+            
+            HStack {
+                Text(self.threeDay)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+                Image(systemName: "chevron.forward")
+                    .font(.title3)
+            }
+            .onTapGesture {
+                self.forecastDetailTitle.day = self.threeDay.components(separatedBy: ":").prefix(1).joined(separator: "")
+                self.currentView.view = "forecastDetail"
+            }
+            
+            HStack {
+                Text(self.fourDay)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+                Image(systemName: "chevron.forward")
+                    .font(.title3)
+            }
+            .onTapGesture {
+                self.forecastDetailTitle.day = self.fourDay.components(separatedBy: ":").prefix(1).joined(separator: "")
+                self.currentView.view = "forecastDetail"
+            }
         }
         .frame(minHeight: minRowHeight * 8)
     }
