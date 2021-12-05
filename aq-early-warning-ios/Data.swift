@@ -98,4 +98,14 @@ struct ReverseGeocodeResponse: Codable {
 
 struct ReverseGeocodeResult: Codable {
     let formattedAddress: String
+    let geometry: Geometry
+}
+
+struct Geometry: Codable {
+    let location: GeometryLocation
+}
+
+struct GeometryLocation: Codable {
+    let lat: Double
+    let lng: Double
 }

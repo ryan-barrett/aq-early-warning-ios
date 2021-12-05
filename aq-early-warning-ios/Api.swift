@@ -188,4 +188,24 @@ class Api {
         }
         .resume()
     }
+    
+    func postalCodeSearch(postalCode: Int, completion: @escaping (ReverseGeocodeResult) -> ()) {
+        guard let url = URL(string: "https://boiling-chamber-50753.herokuapp.com/maps/address?address=\(postalCode)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(self.backendToken)", forHTTPHeaderField: "authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if (error != nil) {
+                print("we got an error :(", error)
+            }
+            let res = try! JSONDecoder().decode(ReverseGeocodeResponse.self, from: data!)
+            
+            DispatchQueue.main.async {
+                completion(res.results[0])
+            }
+        }
+        .resume()
+    }
 }

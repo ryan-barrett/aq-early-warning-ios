@@ -55,12 +55,15 @@ struct SettingsView: View {
     
     @AppStorage("currentAqi") var currentAqi: Int?
     @AppStorage("locationName") var locationName: String = ""
+    @AppStorage("localLocation") var localLocation: String = "Location Not Set"
     
     @ObservedObject private var locationManager = LocationManager()
     @EnvironmentObject var currentView: CurrentView
     
     @ObservedObject var localMaxAqi = NumbersOnly()
+    @State var searchText = ""
     @State private var showingAlert = false
+    @State private var showingLocationAlert = false
     
     @State var localLat: Double?
     @State var localLong: Double?
@@ -104,17 +107,40 @@ struct SettingsView: View {
             }
         }
         
+        
         Text("Location")
             .frame(width: 300)
             .offset(y: -125)
             .font(.title3)
+            .onAppear {
+                self.localLocation = self.locationName == "" ? self.localLocation : self.locationName
+            }
         
-        Text(self.locationName)
-            .frame(width: 300)
+        TextField(String(self.localLocation), text: $searchText, onCommit: {
+            Api().postalCodeSearch(postalCode: Int(searchText)!) { location in
+                Api().updateUserLocation(userId: self.backendUserId!, latitude: location.geometry.location.lat, longitude: location.geometry.location.lng) { settings in
+                    self.latitude = settings.latitude
+                    self.longitude = settings.longitude
+                    searchText = location.formattedAddress.components(separatedBy: " ").prefix(2).joined(separator: " ")
+                    
+                    Api().reverseGeocode(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0) { place in
+                        let place = place.components(separatedBy: ",")
+                        self.locationName = place.dropFirst().joined(separator: ",").components(separatedBy: " ").prefix(3).joined(separator: " ")
+                    }
+                }
+            }
+        })
+//            .frame(width: 300)
+        
             .offset(y: -100)
             .font(.title3)
-        
-        
+            .onTapGesture {
+                self.localLocation = "Enter Postal Code"
+                searchText = ""
+            }
+            .multilineTextAlignment(.center)
+            .keyboardType(.numbersAndPunctuation)
+            
             .navigationBarTitle(Text("Settings"), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -131,18 +157,37 @@ struct SettingsView: View {
                 }
             }
         
+//        Text()
+//            .frame(width: 300)
+//            .offset(y: -100)
+//            .font(.title3)
+        
         if let location = locationManager.location {
             Button("Use Current Location") {
-                print("\(localLat) \(localLong)")
-                Api().updateUserLocation(userId: self.backendUserId!, latitude: localLat!, longitude: localLong!) { settings in
-                    self.latitude = settings.latitude
-                    self.longitude = settings.longitude
-                    
-                    Api().reverseGeocode(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0) { place in
-                        let place = place.components(separatedBy: ",")
-                        self.locationName = place.dropFirst().joined(separator: ",").components(separatedBy: " ").prefix(3).joined(separator: " ")
-                    }
-                }
+                showingLocationAlert = true
+            }
+            .alert(isPresented: $showingLocationAlert) {
+                Alert(
+                    title: Text("Update Current Location?"),
+                    primaryButton: .default(Text("confirm")) {
+                        print("\(localLat) \(localLong)")
+                        Api().updateUserLocation(userId: self.backendUserId!, latitude: localLat!, longitude: localLong!) { settings in
+                            self.latitude = settings.latitude
+                            self.longitude = settings.longitude
+                            
+                            Api().reverseGeocode(latitude: self.latitude ?? 0, longitude: self.longitude ?? 0) { place in
+                                let place = place.components(separatedBy: ",")
+                                self.locationName = place.dropFirst().joined(separator: ",").components(separatedBy: " ").prefix(3).joined(separator: " ")
+                                self.localLocation = self.locationName
+                                
+                                if searchText != "" {
+                                    searchText = self.locationName
+                                }
+                            }
+                        }
+                    },
+                    secondaryButton: .cancel()
+                )
             }
             .frame(height: 44)
             .padding()
